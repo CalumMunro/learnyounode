@@ -2,9 +2,9 @@ var fs = require('fs')
 var numberOfNewLines = undefined
 
 function calculateNumberOfNewLines(callback) {
-  fs.readFile(process.argv[2], function doneReading(err, fileContents) {
+  fs.readFile(process.argv[2], 'utf8', function doneReading(err, fileContents) {
     if (err) {
-        return console.log(err)
+        return console.error(err)
       }
     var fileContentsAsString = fileContents.toString();
     numberOfNewLines = parseInt(fileContentsAsString.split("\n").length) - 1;
